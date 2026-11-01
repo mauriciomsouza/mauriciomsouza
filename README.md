@@ -5,7 +5,7 @@ I build products where design and engineering meet, from the first Figma frame t
 
 **Now:** design & engineering at meutudo (fintech), building an internal CMS integrated with Claude that turns screen flows into production-ready components for developers.
 
-**Before:** Frontend Tech Lead on Apple manufacturing software (iPhone & MacBook Bill of Materials, via Venturus) · Azure Support Engineer at Microsoft · Cloud & Software Engineer at Claranet, Lisbon.
+**Before:** Frontend Tech Lead at Venturus on mission-critical manufacturing software (Bill of Materials for high-volume electronics factories) · Azure Support Engineer at Microsoft · Cloud & Software Engineer at Claranet, Lisbon.
 
 **Patent:** a Figma extension that reads designs and generates structured user stories for design, engineering and QA.
 
