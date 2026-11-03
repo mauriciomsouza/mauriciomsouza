@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Profile banner</title>
+<style>
+  @font-face { font-family: 'Instrument Sans'; src: url('instrument-sans.woff2') format('woff2'); font-weight: 400 700; }
+  @font-face { font-family: 'JetBrains Mono'; src: url('jetbrains-mono.woff2') format('woff2'); font-weight: 100 800; }
+  :root {
+    --bg: #0c0c0f; --panel: #16161a; --line: #26262d; --text: #ececf0; --text-2: #a4a4ae; --text-3: #7d7d88;
+    --signal: #7f8cff; --sel: #4f8bff; --code-k: #c792ea; --code-s: #e3a54a; --code-f: #7fd6c2; --glow: rgb(64 82 230 / .38);
+  }
+  body.light {
+    --bg: #fbfbfc; --panel: #ffffff; --line: #e4e4ea; --text: #111116; --text-2: #55555f; --text-3: #8a8a94;
+    --signal: #4555e0; --sel: #2f6bf0; --code-k: #8a3fc2; --code-s: #b26b0c; --code-f: #0f8a74; --glow: rgb(80 98 240 / .14);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 840px; height: 300px; }
+  body {
+    font-family: 'Instrument Sans', system-ui, sans-serif; color: var(--text); overflow: hidden;
+    background:
+      radial-gradient(ellipse 420px 300px at 86% 110%, var(--glow), transparent 70%),
+      radial-gradient(ellipse 500px 260px at 0% 0%, rgb(127 140 255 / .07), transparent 70%),
+      var(--bg);
+    position: relative;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(var(--line) 1px, transparent 1px);
+    background-size: 16px 16px; opacity: .7;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 55%, #000 100%);
+  }
+  .label {
+    position: absolute; left: 48px; top: 40px;
+    font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3);
+  }
+  .label b { color: var(--signal); font-weight: 600; }
+  .sel {
+    position: absolute; left: 40px; top: 74px; padding: 6px 10px 10px;
+    border: 1.5px solid var(--sel);
+  }
+  .sel i {
+    position: absolute; width: 8px; height: 8px; background: var(--bg); border: 1.5px solid var(--sel);
+  }
+  .sel i:nth-child(1) { left: -5px; top: -5px; } .sel i:nth-child(2) { right: -5px; top: -5px; }
+  .sel i:nth-child(3) { left: -5px; bottom: -5px; } .sel i:nth-child(4) { right: -5px; bottom: -5px; }
+  .sel .dim {
+    position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%);
+    background: var(--sel); color: #fff; font: 600 10px/1 'JetBrains Mono', monospace; padding: 4px 6px; border-radius: 3px; white-space: nowrap;
+  }
+  h1 { font-size: 58px; font-weight: 650; letter-spacing: -0.035em; line-height: 1; }
+  .tag {
+    position: absolute; left: 48px; top: 196px; font-size: 22px; line-height: 1.35; color: var(--text-2); letter-spacing: -0.01em; max-width: 440px;
+  }
+  .tag strong { color: var(--text); font-weight: 600; }
+  .code {
+    position: absolute; right: 40px; top: 52px; width: 300px;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    box-shadow: 0 24px 60px -24px rgb(0 0 0 / .55);
+    font: 400 11.5px/1.75 'JetBrains Mono', monospace; color: var(--text-2);
+  }
+  body.light .code { box-shadow: 0 20px 50px -24px rgb(30 30 60 / .25); }
+  .bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--line); align-items: center; }
+  .bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+  .bar em { margin-left: 8px; font-style: normal; font-size: 10.5px; color: var(--text-3); }
+  pre { padding: 12px 16px 14px; font: inherit; }
+  .k { color: var(--code-k); } .s { color: var(--code-s); } .f { color: var(--code-f); } .c { color: var(--text-3); }
+  .chips { position: absolute; left: 48px; bottom: 30px; display: flex; gap: 8px; }
+  .chip {
+    font: 500 11px/1 'JetBrains Mono', monospace; color: var(--text-2);
+    border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 7px 11px;
+    display: flex; gap: 7px; align-items: center;
+  }
+  .chip::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--dot); }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="label"><b>●</b>&nbsp; Design Engineer &nbsp;·&nbsp; Rio de Janeiro</div>
+  <div class="sel"><i></i><i></i><i></i><i></i><h1>Maurício Souza</h1><span class="dim">Figma → React</span></div>
+  <p class="tag">I design the screen and <strong>ship the code that renders it.</strong></p>
+  <div class="code">
+    <div class="bar"><span></span><span></span><span></span><em>now.ts</em></div>
+<pre><span class="k">export const</span> <span class="f">mauricio</span> = {
+  role: <span class="s">'Design Engineer'</span>,
+  ships: [<span class="s">'React'</span>, <span class="s">'React Native'</span>,
+          <span class="s">'Design systems'</span>],
+  openSource: [<span class="s">'freshed'</span>, <span class="s">'tokensync'</span>,
+               <span class="s">'crew'</span>],
+  <span class="c">// design → code, no handoff gap</span>
+}</pre>
+  </div>
+</body>
+</html>
