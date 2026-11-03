@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.png" />
   <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.png" />
-  <img alt="Maurício Souza, Design Engineer in Rio de Janeiro. I design the screen and ship the code that renders it." src="assets/banner-dark.png" width="100%" />
+  <img alt="Design + Engineering. Maurício Souza, Design Engineer in Rio de Janeiro. I design the screen and ship the code that renders it." src="assets/banner-dark.png" width="100%" />
 </picture>
 
 <p>
